@@ -88,6 +88,10 @@
         .hide {
             display: none;
         }
+        
+        * {
+            font-family: 'Arial';
+        }
     </style>
     </head>
 
@@ -99,6 +103,7 @@
             <div id="verde" class="color verde right" data-color="verde"></div>
             <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar!</button>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
         <script>
             const celeste = document.getElementById("celeste")
             const violeta = document.getElementById("violeta")
@@ -107,19 +112,23 @@
             const btnEmpezar = document.getElementById('btnEmpezar')
             const ULTIMO_NIVEL = 10
 
+            swal("Hola!")
+
             class Juego {
                 constructor() {
+                    this.inicializar = this.inicializar.bind(this)
                     this.inicializar()
                     this.generarSecuencia()
-                    this.siguienteNivel()
+                    setTimeout(this.siguienteNivel, 500)
                 }
 
                 inicializar() {
                     this.siguienteNivel = this.siguienteNivel.bind(this)
-                    btnEmpezar.classList.add('hide');
+                    this.toggleBtnEmpezar()
+
                     //el metodo bind sirve para atar otro metodo
                     this.elegirColor = this.elegirColor.bind(this)
-                    this.nivel = 10
+                    this.nivel = 1
                     this.colores = {
                         celeste,
                         violeta,
@@ -127,6 +136,15 @@
                         verde
                     }
                 }
+
+                toggleBtnEmpezar() {
+                    if (btnEmpezar.classList.contains("hide")) {
+                        btnEmpezar.classList.remove("hide")
+                    } else {
+                        btnEmpezar.classList.add("hide")
+                    }
+                }
+
 
                 generarSecuencia() {
                     this.secuencia = new Array(10)
@@ -141,7 +159,24 @@
                     this.subNivel = 0
                 }
 
-                transformarColorANumero(numero) {
+                transformarNumeroAColor(numero) {
+                    switch (numero) {
+                        case 0:
+
+                            return 'celeste'
+                        case 1:
+
+                            return 'violeta'
+                        case 2:
+
+                            return 'naranja'
+                        case 3:
+
+                            return 'verde'
+                    }
+                }
+
+                transformarColorANumero(color) {
                     switch (color) {
                         case 'celeste':
                             return 0
@@ -196,18 +231,33 @@
                                 this.nivel++
                                     this.eliminarEventosClick()
                                 if (this.nivel === (ULTIMO_NIVEL + 1)) {
-                                    //ganó !!
+                                    this.ganoElJuego()
                                 } else {
-                                    this.siguienteNivel()
+                                    setTimeout(this.siguienteNivel, 1500)
                                 }
                             }
                     } else {
-                        //perdió !!
+                        this.perdioElJuego()
                     }
-                    console.log(this)
+                    // console.log(this)
 
                 }
+
+                perdioElJuego() {
+                    swal("BaltazarGames", "lo mamentamos, suerte en tus proximas predicciones!!", "error")
+                        .then(() => {
+                            this.eliminarEventosClick()
+                            this.inicializar()
+                        })
+                }
+
+                ganoElJuego() {
+                    swal("BaltazarGames", "Felicitaciones, ganaste el juego!!", "success")
+                        .then(this.inicializar)
+                }
             }
+
+
 
 
             function empezarJuego() {
