@@ -1,0 +1,28 @@
+{
+  "name": "js_html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Johntremont/first_repo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Johntremont/first_repo/issues"
+  },
+  "homepage": "https://github.com/Johntremont/first_repo#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@storybook/html": "^5.2.4",
+    "babel-loader": "^8.0.6"
+  }
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    body {
+        /* background: linear-gradient(#21c08b, #ab88ff ); */
+        font-family: 'Muli', sans-serif;
+    }
+    
+    .header {
+        background-color: #21c08b;
+        /* background-color: #8f57fd; */
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .header__img {
+        width: 200px;
+        /* margin: 10px 0px 0px 10px;   */
+        margin-left: 10px;
+    }
+    
+    .main {
+        background: linear-gradient(#21c08b, #ab88ff);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        padding: 0px30px;
+        min-height: calc(100vh - 200px);
+    }
+    
+    .main__container {
+        color: white;
+        padding: 60px68px40px;
+        min-height: 200px;
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        animation-name: pulse;
+        animation-duration: 1s;
+    }
+    
+    .footer {
+        display: flex;
+        align-items: center;
+        height: 100px;
+        width: 100%;
+        font-family: 'Muli', sans-serif;
+        background: linear-gradient(#b99dfc, #ab88ff);
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(2.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    
+    .pulse {
+        animation-name: pulse;
+        animation-duration: 0.1s;
+    }
+</style>
+
+<body>
+    <header class="header">
+        <img class="header__img" src="./assets/logo-platzi-video-BW2.png" alt="Logo de platzi">
+
+    </header>
+
+    <section class="main">
+
+        <section class="main__container">
+
+            <h1 style="font-size: 120px;" class="pulse">404</h1>
+            <h3class="main__container--subtittle">Pagina no encontrada</h3>
+
+        </section>
+
+    </section>
+
+    <footer class="footer">
+        <ahref="/">Términos de uso</a>
+            <ahref="/">Declaracion de privacidad</a>
+                <ahref="/">Centro de ayuda</a>
+    </footer>
+</body>
+
+</html>
