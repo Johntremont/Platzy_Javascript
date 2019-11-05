@@ -8,9 +8,11 @@ const opts = { crossDomain: true }
 function obtenerPersonaje(id, callback) {
     const url = `${API_URL}${PEOPLE_URL.replace(":id", id)}`
 
-    $.get(url, opts, callback).fail(function() {
-        console.log(`ocurrio un error no se pudo obtener el personaje ${id}`)
-    })
+    $
+        .get(url, opts, callback)
+        .fail(function() {
+            console.log(`ocurrio un error no se pudo obtener el personaje ${id}`)
+        })
 }
 
 
